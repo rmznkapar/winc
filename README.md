@@ -5,49 +5,31 @@ A simple utility for conditionally joining class names together
 ## Usage
 
 ```js
-import clsx from 'clsx';
-// or
-import { clsx } from 'clsx';
+import winc from 'winc';
 
-// Strings (variadic)
-clsx('foo', true && 'bar', 'baz');
-//=> 'foo bar baz'
+winc("tag bg-primary", [true, "text-white", "text-primary bg-opacity-30"])
+//=> 'tag bg-primary text-white'
 
-// Objects
-clsx({ foo:true, bar:false, baz:isTrue() });
-//=> 'foo baz'
+winc("tag bg-primary", [true, "text-white", "text-primary bg-opacity-30"])
+//=> 'p-4'
 
-// Objects (variadic)
-clsx({ foo:true }, { bar:false }, null, { '--foobar':'hello' });
-//=> 'foo --foobar'
+winc("mb-2 font-bold", ['', "text-lg", "text-sm"])
+//=> 'mb-2 font-bold text-sm'
 
-// Arrays
-clsx(['foo', 0, false, 'bar']);
-//=> 'foo bar'
+winc([{ users: [] }, "relative", "absolute"])
+//=> 'relative'
 
-// Arrays (variadic)
-clsx(['foo'], ['', 0, false, 'bar'], [['baz', [['hello'], 'there']]]);
-//=> 'foo bar baz hello there'
+winc([true, "bottom-0", "bottom-32"])
+//=> 'bottom-0'
 
-// Kitchen sink (with nesting)
-clsx('foo', [1 && 'bar', { baz:false, bat:null }, ['hello', ['world']]], 'cya');
-//=> 'foo bar hello world cya'
-```
+winc([{ absolute: true, "text-error": false, "font-bold": true })
+//=> 'absolute font-bold'
+
+winc([false, "text-success", "text-error"], { absolute: true })
+//=> 'text-error absolute'
 
 
-## API
+winc(false ? "block" : "opacity-0 hidden", "mt-2")
+//=> 'opacity-0 hidden mt-2'
 
-### clsx(...input)
-Returns: `String`
-
-#### input
-Type: `Mixed`
-
-The `clsx` function can take ***any*** number of arguments, each of which can be an Object, Array, Boolean, or String.
-
-> **Important:** _Any_ falsey values are discarded!<br>Standalone Boolean values are discarded as well.
-
-```js
-clsx(true, false, '', null, undefined, 0, NaN);
-//=> ''
 ```
