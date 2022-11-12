@@ -1,10 +1,11 @@
 {
   "name": "winc",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "A simple javascript utility for conditionally joining class names together",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc --build && node dist/dev.js",
+    "test": "node test.ts"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/rmznkapar/winc/issues"
   },
-  "homepage": "https://github.com/rmznkapar/winc#readme"
+  "homepage": "https://github.com/rmznkapar/winc#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
 }
