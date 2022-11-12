@@ -7,6 +7,7 @@ A simple utility for conditionally joining class names together
 ```js
 import winc from 'winc';
 
+
 winc("tag bg-primary", [true, "text-white", "text-primary bg-opacity-30"])
 //=> 'tag bg-primary text-white'
 
@@ -27,7 +28,6 @@ winc([{ absolute: true, "text-error": false, "font-bold": true })
 
 winc([false, "text-success", "text-error"], { absolute: true })
 //=> 'text-error absolute'
-
 
 winc(false ? "block" : "opacity-0 hidden", "mt-2")
 //=> 'opacity-0 hidden mt-2'
