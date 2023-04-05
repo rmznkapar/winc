@@ -16,7 +16,7 @@ var winc = function () {
                     tltArr.push(!!arg[0]);
                 }
                 else if (arg.length === 2 || arg.length === 3) {
-                    if (!!arg[0]) {
+                    if (arg[0]) {
                         tltArr.push(arg[1]);
                     }
                     else if (arg.length === 3) {
@@ -24,7 +24,7 @@ var winc = function () {
                     }
                 }
             }
-            else {
+            if (typeof arg === 'object' && arg !== null) {
                 Object.keys(arg).forEach(function (csname) {
                     if (arg[csname]) {
                         tltArr.push(csname);
