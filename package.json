@@ -1,6 +1,6 @@
 {
   "name": "winc",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "A simple javascript utility for conditionally joining class names together",
   "main": "dist/index.js",
   "scripts": {
